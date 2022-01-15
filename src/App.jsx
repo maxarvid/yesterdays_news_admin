@@ -1,12 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const App = () => {
-    return (
-        <div>
-            Yesterdays News
-        </div>
-    )
-}
+  return <div data-cy="header">Yesterdays News Admin</div>;
+};
 
-export default App
-
+export default App;
