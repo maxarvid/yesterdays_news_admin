@@ -3,6 +3,7 @@ describe("Journalist can see a Header and create an article", () => {
   before(() => {
     cy.visit("/");
   });
+
   it("is expected to display Yesterday News Admin Header", () => {
     cy.get("[data-cy=header]").should("contain", "Yesterdays News Admin");
   });
@@ -19,8 +20,7 @@ describe("Journalist can see a Header and create an article", () => {
     cy.get("[data-cy=select-category]").select("Politics");
   });
 
-  it("is expected to be a submit button", () => {
+  it("is expected to see a submit button", () => {
     cy.get("[data-cy=submit-button").should("be.visible");
   });
 });
-
