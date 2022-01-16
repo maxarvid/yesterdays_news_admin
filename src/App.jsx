@@ -2,18 +2,27 @@ import React, { useState } from "react";
 import Articles from "./modules/Articles";
 
 const App = () => {
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState();
   const [title, setTitle] = useState();
   const [body, setBody] = useState();
+  const [message, setMessage] = useState();
 
   const createArticle = async () => {
-    const response = await Articles.create({ category, title, body });
-    return response;
+    Articles.create({ category, title, body }).then(createMessage);
   };
+
+  function createMessage(value) {
+    if (true) {
+      setMessage("Article was created");
+    } else {
+      setMessage("Something went wrong with the request");
+    }
+  }
 
   return (
     <>
       <h1 data-cy="header">Yesterdays News Admin</h1>
+      <h3 data-cy="message">{message}</h3>
       <form>
         <label>Title</label>
         <br></br>

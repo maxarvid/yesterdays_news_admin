@@ -1,7 +1,8 @@
 /* eslint-disable no-undef */
-describe("", () => {
+describe("Journalist can see aproval message", () => {
   before(() => {
     cy.intercept("POST", "**/api/articles", {
+      statusCode: 201,
       fixture: "create_response.json",
     }).as("getArticle");
     cy.visit("/");
