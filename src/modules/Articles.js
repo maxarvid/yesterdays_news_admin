@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const Articles = {
-  async create({ title, body, category }) {
+  async create({ article }) {
     const response = await axios.post("http://localhost:3000/api/articles", {
       params: {
-        title: title,
-        body: body,
-        category: category,
+        title: article.title,
+        body: article.body,
+        category: article.category,
       },
     });
     return response.status === 201; //returns true if successful else false
