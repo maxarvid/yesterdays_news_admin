@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Articles from "../modules/Articles";
 
 const CreateArticleForm = ({ onCreateMessage }) => {
-  const [article, setArticle] = useState({});
+  const [title, setTitle] = useState();
+  const [body, setBody] = useState();
+  const [category, setCategory] = useState();
 
   const createArticle = async (event) => {
     event.preventDefault();
-    const success = await Articles.create(article);
+    const success = await Articles.create(title, body, category);
     createMessage(success);
   };
 
@@ -21,29 +23,33 @@ const CreateArticleForm = ({ onCreateMessage }) => {
   return (
     <>
       <form onSubmit={createArticle}>
-        <label>Title</label>
+        <label>
+          Title<br></br>
+          <input
+            type="text"
+            data-cy="title-input"
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+          />
+        </label>
+
         <br></br>
-        <input
-          type="text"
-          data-cy="title-input"
-          onChange={(e) => {
-            setArticle({ title: e.target.value });
-          }}
-        ></input>
-        <br></br>
-        <label>Article body</label>
-        <br></br>
-        <textarea
-          data-cy="body-input"
-          onChange={(e) => {
-            setArticle({ body: e.target.value });
-          }}
-        ></textarea>
+        <label>
+          Article body<br></br>
+          <textarea
+            data-cy="body-input"
+            onChange={(e) => {
+              setBody(e.target.value);
+            }}
+          />
+        </label>
+
         <br></br>
         <select
           data-cy="select-category"
           onChange={(select) => {
-            setArticle({ category: select.target.value });
+            setCategory(select.target.value);
           }}
         >
           <option value="News">News</option>

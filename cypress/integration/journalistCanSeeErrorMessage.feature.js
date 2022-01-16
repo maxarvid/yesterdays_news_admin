@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-describe("Journalist can see aproval message", () => {
+describe("Journalist can see error message", () => {
   before(() => {
     cy.intercept("POST", "/api/articles", {
       statusCode: 204,
