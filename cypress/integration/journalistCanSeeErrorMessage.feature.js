@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 describe("Journalist can see aproval message", () => {
   before(() => {
-    cy.intercept("POST", "**/api/articles", {
-      statusCode: 201,
+    cy.intercept("POST", "/api/articles", {
+      statusCode: 204,
       fixture: "create_response.json",
     }).as("getArticle");
     cy.visit("/");
@@ -13,7 +13,10 @@ describe("Journalist can see aproval message", () => {
     cy.wait("@getArticle").its("request.method").should("eq", "POST");
   });
 
-  it("is expected to see created message", () => {
-    cy.get("[data-cy=message]").should("contain", "Article was created");
+  it("is expected to see error message", () => {
+    cy.get("[data-cy=message]").should(
+      "contain",
+      "Something went wrong with the request"
+    );
   });
 });
