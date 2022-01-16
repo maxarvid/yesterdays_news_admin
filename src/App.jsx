@@ -7,22 +7,27 @@ const App = () => {
   const [body, setBody] = useState();
   const [message, setMessage] = useState();
 
-  const createArticle = async () => {
-    Articles.create({ category, title, body }).then(createMessage);
+  const createArticle = async (event) => {
+    event.preventDefault();
+    const success = await Articles.create({ category, title, body });
+    createMessage(success);
   };
 
-  function createMessage(value) {
-    if (true) {
+  function createMessage(success) {
+    console.log(`Success ${success}`);
+    if (success) {
       setMessage("Article was created");
     } else {
       setMessage("Something went wrong with the request");
     }
   }
 
+  const flashMessage = message ? <h3 data-cy="message">{message}</h3> : <></>;
+
   return (
     <>
       <h1 data-cy="header">Yesterdays News Admin</h1>
-      <h3 data-cy="message">{message}</h3>
+      {flashMessage}
       <form>
         <label>Title</label>
         <br></br>
