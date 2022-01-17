@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-describe("Journalist can see a Header and create an article", () => {
-  before(() => {
+describe("Journalist can create an article and recieve message article created", () => {
+  beforeEach(() => {
     cy.intercept("POST", "/api/articles", {
       fixture: "create_response.json",
     }).as("getArticle");
@@ -34,5 +34,11 @@ describe("Journalist can see a Header and create an article", () => {
 
   it("is expected to be able to select category", () => {
     cy.get("[data-cy=select-category]").should("contain", "News");
+  });
+
+  it("is expected to return an error message if article is not created", () => {
+    cy.wait("@getArticle")
+      .its("response.body.message")
+      .should("contain", "Article succesfully created!");
   });
 });
