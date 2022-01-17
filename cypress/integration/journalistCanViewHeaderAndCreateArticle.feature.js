@@ -2,6 +2,14 @@
 describe("Journalist can see a Header and create an article", () => {
   before(() => {
     cy.visit("/");
+    before(() => {
+      cy.intercept("POST", "/api/articles", {
+        statusCode: 204,
+        fixture: "create_response.json",
+      }).as("getArticle");
+      cy.visit("/");
+      cy.get("[data-cy=submit-button").click();
+    });
   });
 
   it("is expected to display Yesterday News Admin Header", () => {
