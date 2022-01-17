@@ -8,6 +8,7 @@ const CreateArticleForm = ({ onCreateMessage }) => {
     event.preventDefault();
     const response = await Articles.create(article);
     onCreateMessage(response.message);
+    debugger;
   };
 
   const handleChange = (e) => {
@@ -50,9 +51,7 @@ const CreateArticleForm = ({ onCreateMessage }) => {
               name="category"
               onChange={handleChange}
             >
-              <option value="" selected disabled hidden>
-                --select category--
-              </option>
+              <option value="">--select category--</option>
               <option value="News">News</option>
               <option value="Politics">Politics</option>
               <option value="Economy">Economy</option>
