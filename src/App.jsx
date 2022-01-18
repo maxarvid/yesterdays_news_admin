@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
       <h1 data-cy="header">Yesterdays News Admin</h1>
-      <div data-cy="message">{message}</div>
+      <div data-cy="message-box">{message}</div>
       <CreateArticleForm onCreateMessage={setMessage} />
     </>
   );

@@ -8,7 +8,6 @@ const CreateArticleForm = ({ onCreateMessage }) => {
     event.preventDefault();
     const response = await Articles.create(article);
     onCreateMessage(response.message);
-    debugger;
   };
 
   const handleChange = (e) => {
@@ -23,7 +22,7 @@ const CreateArticleForm = ({ onCreateMessage }) => {
       <div>
         <form onSubmit={handleSubmit}>
           <div>
-            <label>
+            <label data-cy="title-label">
               Title<br></br>
               <input
                 name="title"
@@ -35,7 +34,7 @@ const CreateArticleForm = ({ onCreateMessage }) => {
           </div>
 
           <div>
-            <label>
+            <label data-cy="body-label">
               Article body<br></br>
               <textarea
                 name="body"
@@ -47,7 +46,7 @@ const CreateArticleForm = ({ onCreateMessage }) => {
 
           <div>
             <select
-              data-cy="select-category"
+              data-cy="category-select"
               name="category"
               onChange={handleChange}
             >

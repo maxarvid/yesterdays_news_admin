@@ -1,12 +1,12 @@
 import { api } from "./network";
 
 const Articles = {
-  async create(title, body, category) {
-    const { data } = await api.post("http://localhost:3000/api/articles", {
-      params: {
-        title: title,
-        body: body,
-        category: category,
+  async create(article) {
+    const { data } = await api.post("/articles", {
+      article: {
+        title: article.title,
+        body: article.body,
+        category: article.category,
       },
     });
     return data
