@@ -1,5 +1,10 @@
 ## Yesterdays news (admin)
 
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a5a4d168f1fd6b04713d/test_coverage)]
+(https://codeclimate.com/github/CraftAcademy/yesterdays_news_admin/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a5a4d168f1fd6b04713d/maintainability)]
+(https://codeclimate.com/github/CraftAcademy/yesterdays_news_admin/maintainability)
+
 ## Available Scripts
 
 In the project directory, you can run:
