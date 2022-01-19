@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import CreateArticleForm from "./components/CreateArticleForm";
 
 const App = () => {
-  return <h1 data-cy="header">Yesterdays News Admin</h1>;
+  const [message, setMessage] = useState();
+
+  return (
+    <>
+      <h1 data-cy="header">Yesterdays News Admin</h1>
+      <div data-cy="message-box">{message}</div>
+      <CreateArticleForm onCreateMessage={setMessage} />
+    </>
+  );
 };
 
 export default App;
