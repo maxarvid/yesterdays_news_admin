@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Articles from "../modules/Articles";
 
 const CreateArticleForm = ({ onCreateMessage }) => {
+  const navigate = useNavigate();
   const [article, setArticle] = useState({});
 
   const handleSubmit = async (event) => {

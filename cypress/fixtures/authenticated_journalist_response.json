@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "data": {
+    "id": 1,
+    "name": "Max Anderson",
+    "email": "max@craftacademy.se",
+    "provider": "email",
+    "uid": "max@craftacademy.se",
+    "allow_password_change": false,
+    "role": "journalist"
+  }
+}
